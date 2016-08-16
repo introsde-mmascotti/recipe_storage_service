@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -30,7 +28,6 @@ public class Recipe {
 	@XmlElement
 	private String name;
 	
-	@Column(name="db_name")
 	private String db_name;
 	
 	@XmlElement
@@ -40,7 +37,6 @@ public class Recipe {
 	private Integer num_servings;
 	
 	@OneToMany(cascade=CascadeType.ALL)
-	@JoinTable(schema="recipe_service")
 	@XmlElement
 	private List<Ingredient> ingredients = new ArrayList<Ingredient>();
 
