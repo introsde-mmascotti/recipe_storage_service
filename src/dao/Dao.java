@@ -94,7 +94,7 @@ public class Dao {
 	
 	@SuppressWarnings("unchecked")
 	public List<Recipe> searchRecipe(String term, String author){
-		String query = "Select r" +
+		String query = "Select r " +
 						"from Recipe r " +
 						"where (r.db_name like :noacc_term or lower(r.name) like :term) ";
 		
@@ -102,7 +102,7 @@ public class Dao {
 			query += "and r.author = :author";
 		
 		Query q = em.createQuery(query);
-		
+				
 		String noacc_term = removeAccents(term);
 		q.setParameter("noacc_term", "%" + noacc_term + "%");
 		q.setParameter("term", "%" + term.toLowerCase() + "%");
