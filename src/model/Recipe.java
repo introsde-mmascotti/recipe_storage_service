@@ -11,8 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -20,14 +18,12 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(schema="recipe_service")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.NONE)
 public class Recipe {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="recipe_id")
-	@SequenceGenerator(name="recipe_id", schema="recipe_service", sequenceName="recipe_id_seq")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@XmlAttribute
 	private Integer id;
 	
